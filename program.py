@@ -79,25 +79,3 @@ while start:
         print(decode(text,shift_num))
     start = input("Press any key to continue!!!\n")
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
