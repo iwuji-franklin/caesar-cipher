@@ -1,1 +1,64 @@
+from art import logo
+print(logo)
+letters = [
+    'a','b','c','d','e','f','g','h','i','j','k','l','m','n',
+    'o','p','q','r','s','t','u','v','w','x','y','z'
+    ]
+# making letters to be 2 times its item
+for x in range(len(letters)):
+        letters.append(letters[x])
+
+def code(word, shift):
+    # this is the variable for storing both decoded and encoded text
+    coded_word = ""
+
+
+    # getting each letter in the inserted text by user
+    for char in word:
+        # if an alphabet, then encode it by: 
+        if char.isalpha():
+            # tracing the position of the letter in the default letters
+            position = letters.index(char) +(shift % 26)
+            # and using it to trace the same index in the default letters
+            coded_word += letters[position]
+        # if a number/space/symbol don't do anything, add it to the encoded text before moving to the next.      
+        else:
+            coded_word += char
+    return coded_word
+    
+start = input("Press any key to continue!!!\n")
+# validating our start statement
+while len(start) >= 0 :
+    if len(start) == 0:
+        print("OOPS, empty text is not allowed!!!")
+        start = input("Press any key to continue!!!\n")
+    # if the text is a string break the loop and continue the program
+    elif start.isalpha():
+        print("We are about to start now, gather all your text together...")
+        break
+    else:
+        print("You are only meant to insert only alphabet keys not symbols\\numbers")
+        start = input("Press any key to continue!!!\n")
+# while start is a true statement
+while start:
+    # checking if user inserted start value as stop,no,end.
+    if start=="stop" or start=="end" or start=="no":
+        print("Thanks for making use of our program, will like to see you again!!!")
+        break
+
+    text = input("insert your text here...\n").lower()
+    shift_num = int(input("What is your shift number\n"))
+    coding = input("Do you want to encode or decode?\n (e\\d)").lower()
+    # calling on encode function,if coding value is encode
+    if coding=="encode" or coding=="e":
+        print("WOW!!!, Your text have been encoded to: \n", code(text,shift_num))
+    # if the user want to decode
+    else:
+        # to make 
+        shift_num = shift_num * (-1)
+        print("We have decoded your text to the text below: \n",code(text,shift_num))
+    start = input("Press any key to continue!!!\n")
+
+
+
 
